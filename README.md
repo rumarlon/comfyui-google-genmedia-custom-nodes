@@ -9,6 +9,7 @@ This is a preview version of Google GenAI custom nodes for ComfyUI.
 This repository contains ComfyUI custom nodes for the following Google GenMedia models:
 - Gemini
 - Gemini 2.5 Flash Image(Nano Banana 🍌)
+- Gemini 3 Pro Image(Nano Banana Pro 🍌)
 - Imagen3
 - Imagen4
 - Lyria2
