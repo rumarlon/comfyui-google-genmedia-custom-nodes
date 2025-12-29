@@ -21,7 +21,10 @@ All of these nodes need a Google Cloud project and region as input and uses the 
 
 If you are running your own(local) ComfyUI installation, you will need to install the custom nodes and authenticate to Google Cloud as an user or a Service Account. See [installation](##usage) section for details.
 
+## Pricing
+All the custom nodes provided with this repo use Vertex AI APIs to generate content and hence, Vertex AI pricing is applied to each API call. See [Vertex AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) for the model that you want to use.
 
+Note : If you store the content in Google Cloud Storage using these custom nodes, refer to [Google Cloud Storage pricing](https://cloud.google.com/storage/pricing?e=48754805&hl=en). 
 
 ## Installing the Google Generative Media custom nodes
 
