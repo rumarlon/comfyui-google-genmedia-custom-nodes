@@ -182,8 +182,8 @@ class Gemini3ProImage:
             image1: The primary input image tensor for image editing tasks.
             image2: An optional second input image tensor. Defaults to None.
             image3: An optional third input image tensor. Defaults to None.
-            image4: An optional third input image tensor. Defaults to None.
-            image5: An optional third input image tensor. Defaults to None.
+            image4: An optional fourth input image tensor. Defaults to None.
+            image5: An optional fifth input image tensor. Defaults to None.
             gcp_project_id: The GCP project ID.
             gcp_region: The GCP region.
 

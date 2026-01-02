@@ -94,8 +94,8 @@ class GeminiProImageAPI(VertexAIClient):
             image1: An optional input image tensor. Defaults to None.
             image2: An optional second input image tensor. Defaults to None.
             image3: An optional third input image tensor. Defaults to None.
-            image4: An optional third input image tensor. Defaults to None.
-            image5: An optional third input image tensor. Defaults to None.
+            image4: An optional fourth input image tensor. Defaults to None.
+            image5: An optional fourth input image tensor. Defaults to None.
 
         Returns:
             A list of generated PIL images.
