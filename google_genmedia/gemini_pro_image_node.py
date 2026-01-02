@@ -89,6 +89,8 @@ class Gemini3ProImage:
                 "image1": ("IMAGE",),
                 "image2": ("IMAGE",),
                 "image3": ("IMAGE",),
+                "image4": ("IMAGE",),
+                "image5": ("IMAGE",),
                 # Safety Settings
                 "harassment_threshold": (
                     [threshold_option.name for threshold_option in ThresholdOptions],
@@ -153,6 +155,8 @@ class Gemini3ProImage:
         image1: Optional[torch.Tensor] = None,
         image2: Optional[torch.Tensor] = None,
         image3: Optional[torch.Tensor] = None,
+        image4: Optional[torch.Tensor] = None,
+        image5: Optional[torch.Tensor] = None,
         gcp_project_id: Optional[str] = None,
         gcp_region: Optional[str] = None,
     ) -> Tuple[torch.Tensor,]:
@@ -178,6 +182,8 @@ class Gemini3ProImage:
             image1: The primary input image tensor for image editing tasks.
             image2: An optional second input image tensor. Defaults to None.
             image3: An optional third input image tensor. Defaults to None.
+            image4: An optional third input image tensor. Defaults to None.
+            image5: An optional third input image tensor. Defaults to None.
             gcp_project_id: The GCP project ID.
             gcp_region: The GCP region.
 
@@ -217,6 +223,8 @@ class Gemini3ProImage:
                 image1=image1,
                 image2=image2,
                 image3=image3,
+                image4=image4,
+                image5=image5,
             )
         except APIInputError as e:
             raise RuntimeError(f"Image generation input error: {e}") from e
