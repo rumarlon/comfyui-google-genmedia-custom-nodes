@@ -614,6 +614,8 @@ This node integrates the Gemini 3 Pro Image model, designed for high-speed image
 | **model** | `Dropdown` | `GEMINI_3_PRO_IMAGE` | Selects the specific Gemini Pro Image model version. |
 | **prompt** | `STRING` | _"A vivid landscape painting of a futuristic city."_ | Multiline string. The main text description for the image generation. |
 | **aspect_ratio** | `Dropdown` | `16:9` | The aspect ratio of the generated image. Options include `1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:6`, `16:9`, `21:9`. |
+| **image_size** | `Dropdown` | `1K`| The output size of the generated image. Options include `1K`, `2K`, `4K`. |
+| **output_mime_type** | `Dropdown` | `image/png` | The image type of the generated image. Options include `PNG`, `JPEG`. | 
 | **temperature** | `FLOAT` | `0.7` | Controls randomness. Higher values are more creative; lower are more deterministic. **Min:** 0.0, **Max:** 1.0. |
 | **top_p** | `FLOAT` | `1.0` | Cumulative probability cutoff for token selection. **Min:** 0.0, **Max:** 1.0. |
 | **top_k** | `INT` | `32` | Limits token selection to the top K most probable tokens. **Min:** 1, **Max:** 64. |
