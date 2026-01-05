@@ -85,10 +85,10 @@ class Gemini3ProImage:
                 ),
                 "output_mime_type": (
                     [
-                        "image/png",
-                        "image/jpeg",
+                        "PNG",
+                        "JPEG",
                     ],
-                    {"default": "image/png"},
+                    {"default": "PNG"},
                 ),
                 "temperature": (
                     "FLOAT",
@@ -221,6 +221,9 @@ class Gemini3ProImage:
             raise RuntimeError(
                 f"Gemini Flash Image API Configuration Error: {e}"
             ) from e
+
+        output_mime_type = "image/" + output_mime_type.lower()
+
         if aspect_ratio not in GEMINI_3_PRO_IMAGE_ASPECT_RATIO:
             raise RuntimeError(
                 f"Invalid aspect ratio: {aspect_ratio}. Valid aspect ratios are: {GEMINI_3_PRO_IMAGE_ASPECT_RATIO}."
