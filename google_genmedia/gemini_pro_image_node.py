@@ -75,6 +75,21 @@ class Gemini3ProImage:
                     ],
                     {"default": "16:9"},
                 ),
+                "image_size": (
+                    [
+                        "1K",
+                        "2K",
+                        "4K",
+                    ],
+                    {"default": "1K"},
+                ),
+                "output_mime_type": (
+                    [
+                        "png",
+                        "jpeg",
+                    ],
+                    {"default": "png"},
+                ),
                 "temperature": (
                     "FLOAT",
                     {"default": 0.7, "min": 0.0, "max": 1.0, "step": 0.01},
