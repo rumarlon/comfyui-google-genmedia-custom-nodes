@@ -72,7 +72,7 @@ class GeminiProImageAPI(VertexAIClient):
         sexually_explicit_threshold: str,
         dangerous_content_threshold: str,
         system_instruction: str,
-        image1: torch.Tensor,
+        image1: Optional[torch.Tensor] = None,
         image2: Optional[torch.Tensor] = None,
         image3: Optional[torch.Tensor] = None,
         image4: Optional[torch.Tensor] = None,
