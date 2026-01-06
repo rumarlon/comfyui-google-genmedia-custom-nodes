@@ -61,6 +61,8 @@ class GeminiProImageAPI(VertexAIClient):
         self,
         model: str,
         aspect_ratio: str,
+        image_size: str,
+        output_mime_type: str,
         prompt: str,
         temperature: float,
         top_p: float,
@@ -70,7 +72,7 @@ class GeminiProImageAPI(VertexAIClient):
         sexually_explicit_threshold: str,
         dangerous_content_threshold: str,
         system_instruction: str,
-        image1: torch.Tensor,
+        image1: Optional[torch.Tensor] = None,
         image2: Optional[torch.Tensor] = None,
         image3: Optional[torch.Tensor] = None,
         image4: Optional[torch.Tensor] = None,
@@ -81,6 +83,8 @@ class GeminiProImageAPI(VertexAIClient):
         Args:
             model: The name of the Gemini model to use. default: gemini-3-pro-image-preview
             aspect_ratio: The desired aspect ratio of the output image.
+            image_size: The desired image size for the output image.
+            output_mime_type: The desired formate for the output image.
             prompt: The text prompt for image generation.
             temperature: Controls randomness in token generation.
             top_p: The cumulative probability of tokens to consider for sampling.
@@ -116,6 +120,8 @@ class GeminiProImageAPI(VertexAIClient):
             response_modalities=["TEXT", "IMAGE"],
             image_config=types.ImageConfig(
                 aspect_ratio=aspect_ratio,
+                image_size=image_size,
+                output_mime_type=output_mime_type,
             ),
             system_instruction=system_instruction,
             safety_settings=[

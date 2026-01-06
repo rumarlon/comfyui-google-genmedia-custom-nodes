@@ -75,6 +75,21 @@ class Gemini3ProImage:
                     ],
                     {"default": "16:9"},
                 ),
+                "image_size": (
+                    [
+                        "1K",
+                        "2K",
+                        "4K",
+                    ],
+                    {"default": "1K"},
+                ),
+                "output_mime_type": (
+                    [
+                        "PNG",
+                        "JPEG",
+                    ],
+                    {"default": "PNG"},
+                ),
                 "temperature": (
                     "FLOAT",
                     {"default": 0.7, "min": 0.0, "max": 1.0, "step": 0.01},
@@ -120,7 +135,7 @@ class Gemini3ProImage:
                     "STRING",
                     {
                         "default": "",
-                        "tooltip": "GCP project id where Vertex AI API will query Imagen",
+                        "tooltip": "GCP project id where Vertex AI API will query Gemini",
                     },
                 ),
                 "gcp_region": (
@@ -143,6 +158,8 @@ class Gemini3ProImage:
         self,
         model: str,
         aspect_ratio: str,
+        image_size: str,
+        output_mime_type: str,
         prompt: str,
         temperature: float,
         top_p: float,
@@ -169,6 +186,8 @@ class Gemini3ProImage:
         Args:
             model: The Gemini Pro Image model to use. default: gemini-3-pro-image-preview
             aspect_ratio: The desired aspect ratio of the output image.
+            image_size: The desired image size for the output image.
+            output_mime_type: The desired format for the output image.
             prompt: The text prompt for image generation.
             temperature: Controls randomness in token generation.
             top_p: The cumulative probability of tokens to consider for sampling.
@@ -202,6 +221,9 @@ class Gemini3ProImage:
             raise RuntimeError(
                 f"Gemini Flash Image API Configuration Error: {e}"
             ) from e
+
+        output_mime_type = "image/" + output_mime_type.lower()
+
         if aspect_ratio not in GEMINI_3_PRO_IMAGE_ASPECT_RATIO:
             raise RuntimeError(
                 f"Invalid aspect ratio: {aspect_ratio}. Valid aspect ratios are: {GEMINI_3_PRO_IMAGE_ASPECT_RATIO}."
@@ -211,6 +233,8 @@ class Gemini3ProImage:
             pil_images = gemini_pro_image_api.generate_image(
                 model=model,
                 aspect_ratio=aspect_ratio,
+                image_size=image_size,
+                output_mime_type=output_mime_type,
                 prompt=prompt,
                 temperature=temperature,
                 top_p=top_p,
